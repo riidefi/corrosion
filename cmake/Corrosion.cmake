@@ -794,10 +794,8 @@ function(_add_cargo_build out_cargo_build_out_dir)
         # This variable is read by cc-rs (often used in build scripts) to determine the c-compiler.
         # It can still be overridden if the user sets the non underscore variant via the environment variables
         # on the target.
-        list(APPEND corrosion_cc_rs_flags "CC_${_CORROSION_RUST_CARGO_TARGET_UNDERSCORE}=${CMAKE_C_COMPILER}")
     endif()
     if(CMAKE_CXX_COMPILER AND _CORROSION_RUST_CARGO_TARGET_UNDERSCORE)
-        list(APPEND corrosion_cc_rs_flags "CXX_${_CORROSION_RUST_CARGO_TARGET_UNDERSCORE}=${CMAKE_CXX_COMPILER}")
     endif()
     # Since we instruct cc-rs to use the compiler found by CMake, it is likely one that requires also
     # specifying the target sysroot to use. CMake's generator makes sure to pass --sysroot with
